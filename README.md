@@ -17,7 +17,13 @@ CLI tool accept 4 options:
 3. -o, --output: an output file
 4. -a, --action: an action encode/decode (required)
 
-For example
+If **input and output files don't exist** - you can write text in command line and **result** will immediately appear on the command line.
+
+If **input file exists, but output file doesn't** - **result** will immediately appear on the command line.
+
+If **input file doesn't exist, but output file exists** - you can write text in command line and **result** will be writing in output file.
+
+For example:
 
 `$ node src/main -a encode -s 7 -i "./input.txt" -o "./encoded.txt"`
 
