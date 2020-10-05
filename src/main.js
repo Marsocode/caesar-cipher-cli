@@ -1,7 +1,3 @@
-// -s, --shift: a shift
-// -i, --input: an input file
-// -o, --output: an output file
-// -a, --action: an action encode/decode
 // jshint esversion:6
 const fs = require("fs");
 var parseArgs = require('minimist');
@@ -22,13 +18,14 @@ try {
     var input = argv["i"] || argv["input"];
     var output = argv["o"] || argv["output"];
 
-    // take last shift or action or input or output, if typed many times
+    // take last value of shift or action or input or output, if typed many times
     if (Array.isArray(shift)) shift = shift[shift.length - 1];
     if (Array.isArray(action)) action = action[action.length - 1];
     if (Array.isArray(input)) input = input[input.length - 1];
     if (Array.isArray(output)) output = output[output.length - 1];
-    console.log(argv);
     // console.log(shift, action, input, output);
+
+    check_args(shift, action);
 
     pipeline(
         input_stream(input, action),

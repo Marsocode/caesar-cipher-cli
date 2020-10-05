@@ -1,5 +1,6 @@
 // jshint esversion:6
 const fs = require("fs");
+const HumanFriendlyError = require("./human_friendly_error");
 
 exports.input_stream = (filePath, action) => {
     if (typeof filePath === "undefined") {
@@ -10,7 +11,7 @@ exports.input_stream = (filePath, action) => {
             fs.accessSync(filePath, fs.R_OK);
             return fs.createReadStream(filePath);
         } catch(error) {
-            throw new Error(error, 2);
+            throw new HumanFriendlyError(error.message, 2);
         }
 
     }
