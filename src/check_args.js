@@ -11,5 +11,5 @@ exports.check_args  = (shift, action) => {
     } else if (action !== "encode" && action !== "decode") {
         throw new Error("Error: wrong action", 1);
     }
-}
+};
 

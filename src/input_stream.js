@@ -9,8 +9,8 @@ exports.input_stream = (filePath, action) => {
         try {
             fs.accessSync(filePath, fs.R_OK);
             return fs.createReadStream(filePath);
-        } catch(e) {
-            console.log(e);
+        } catch(error) {
+            throw new Error(error, 2);
         }
 
     }

@@ -1,6 +1,7 @@
 // jshint esversion:6
 exports.encode = (shift) => {
     return function (chunk, enc, callback) {
+        if (Math.abs(shift) > 26) shift = shift % 26;
         for (let i = 0; i < chunk.length; i++) {
             if (chunk[i] >= 97 && chunk[i] <= 122) {
                 chunk[i] += shift;
@@ -21,6 +22,7 @@ exports.encode = (shift) => {
 
 exports.decode = (shift) => {
     return function (chunk, enc, callback) {
+        if (Math.abs(shift) > 26) shift = shift % 26;
         for (let i = 0; i < chunk.length; i++) {
             if (chunk[i] >= 97 && chunk[i] <= 122) {
                 chunk[i] -= shift;

@@ -15,11 +15,8 @@ const { encode } = require("./caesar_cipher");
 const { decode } = require("./caesar_cipher");
 const { exit } = require('./custom_exit');
 
-// console.log(argv);
-// console.log(shift, action, input, output);
-
 try {
-    // check arguments
+    // assign variables using minimist
     var shift = argv["s"] || argv["shift"];
     var action = argv["a"] || argv["action"];
     var input = argv["i"] || argv["input"];
@@ -30,26 +27,16 @@ try {
     if (Array.isArray(action)) action = action[action.length - 1];
     if (Array.isArray(input)) input = input[input.length - 1];
     if (Array.isArray(output)) output = output[output.length - 1];
-
-        
-    check_args(shift, action);
-    console.log(shift, action, input, output);
+    console.log(argv);
+    // console.log(shift, action, input, output);
 
     pipeline(
-        // fs.createReadStream(input, function(err, content) {
-        //     console.log(content);
-        // }),
-
-        // (err) => {
-        //     (err) ? console.log("Pipeline failed.", err) : console.log('Pipeline succeeded.')
-        // }
-
         input_stream(input, action),
         (action === "encode") ? through2(encode(shift)): through2(decode(shift)),
         output_stream(output),
         complete => {
 			output_stream(output).write('\n');
-			console.log(action + " completed");
+			console.log("Task completed!");
 	    }
     );
 

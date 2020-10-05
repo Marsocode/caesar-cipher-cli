@@ -1,5 +1,5 @@
-exports.exit = (err) => {
+exports.exit = (error) => {
 	process.on('exit', function (){
-	    process.stderr.write(err.message + "\nstatus code: " + err.statusCode);
+	    process.stderr.write(error.message + "\nstatus code: " + error.statusCode);
 	});
 }
