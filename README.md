@@ -19,7 +19,6 @@ CLI tool accept 4 options:
 
 For example
 
-----------
 `$ node src/main -a encode -s 7 -i "./input.txt" -o "./encoded.txt"`
 
 `$ node src/main --action encode --shift 7 --input "./input.txt" --output "./encoded.txt"`
