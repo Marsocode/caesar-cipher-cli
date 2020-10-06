@@ -5,7 +5,7 @@ This application will encode and decode a text by Caesar cipher.
 
 To start using:
 
-1. Download source code (git clone https://github.com/Marsocode/caesar-cipher-cli.git)
+1. Download source code (Code -> Download ZIP) OR clone repo: git clone https://github.com/Marsocode/caesar-cipher-cli.git
 2. Change directory to downloaded source code folder (using command promt)
 3. Run command "npm install"
 4. Run "node caesar-src" with options (options described below)
