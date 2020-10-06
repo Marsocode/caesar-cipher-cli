@@ -23,7 +23,6 @@ try {
     if (Array.isArray(action)) action = action[action.length - 1];
     if (Array.isArray(input)) input = input[input.length - 1];
     if (Array.isArray(output)) output = output[output.length - 1];
-    // console.log(shift, action, input, output);
 
     check_args(shift, action);
 
